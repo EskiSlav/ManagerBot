@@ -1,10 +1,12 @@
 #Бот-менеджер   САША    1.0 BETA
-import  telebot
+import telebot
 import sqlite3
-import  constants
+import constants
 from keyboard import *
 bot = telebot.TeleBot(constants.TOKEN)        
 
+conn = sqlite3.connect("users.db")
+cursor = conn.cursor()
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."
 
 ##keyboards

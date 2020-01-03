@@ -71,7 +71,8 @@
             
    "addkeyboard1":{
 	   "back":"Вернутся назад", 
-	   "how_add_channel":"Как добавить канал в бота"
+	   "how_add_channel":"Как добавить канал"
 	}
+
 
 }

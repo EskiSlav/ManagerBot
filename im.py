@@ -1,9 +1,13 @@
 #Бот-менеджер   САША    1.0 BETA
 import telebot
+import json
 import sqlite3
 import constants
 from keyboard import *
 bot = telebot.TeleBot(constants.TOKEN)        
+TEXT = {}
+with open("")
+
 
 
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."

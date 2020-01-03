@@ -4,6 +4,7 @@ cursor = conn.cursor()
 us_id = "111111"
 # cursor.execute(f"SELECT * FROM users WHERE user_id={us_id};")
 # cursor.execute("DELETE FROM users WHERE username='yardvlad'")
+
 cursor.execute("SELECT * FROM users;")
 fetch = cursor.fetchall()
 if len(fetch) == 0:

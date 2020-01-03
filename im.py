@@ -7,7 +7,7 @@ from keyboard import *
 bot = telebot.TeleBot(constants.TOKEN)        
 TEXT = {}
 
-##хуй
+
 
 
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."

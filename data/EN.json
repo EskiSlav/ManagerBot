@@ -73,8 +73,8 @@
    "addkeyboard1":{
 	   "back":"Go back", 
 	   "how_add_channel":"How to add a channel",
-	   "how_add_bot_admin":"Как сделать бота админом",
-	   "indicate_catalog":"Указать категорию"
+	   "how_add_bot_admin":"How to make a bot admin",
+	   "indicate_catalog":"Indicate category"
 	}
 
 }

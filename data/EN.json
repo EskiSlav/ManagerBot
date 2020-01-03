@@ -1,0 +1,78 @@
+{
+	"keyboard1":{
+		"catalog":"Сhannel categories", 
+		"add_channel":"Add channel"
+	},
+
+	"keyboard2":{
+		"blogs":"Blogs", 
+		"fun":"Fun and entertainment", 
+		"business":"Business and startup", 
+		"music":"Music", 
+		"news":"News and media", 
+		"crypto":"Cryptocurrencies", 
+		"sells":"Sells",
+		"health":"Health and sport", 
+		"art":"Art and photo", 
+		"education":"Education",
+		"politics":"Politics", 
+		"technology":"Technologyt", 
+		"travel":"Travel",
+		"advertising":"Marketing, PR, Advertising", 
+		"video":"Video and films", 
+		"psycology":"Pcyhology",
+		"fashion":"Fashion and beaty", 
+		"gamesandapps":"Games and application",
+		"books":"Books", 
+		"quotes":"Quotes",
+		"food":"Food and cooking", 
+		"informative":"Informative", 
+		"car":"Car", 
+		"economics":"Economy",
+		"career":"Career", 
+		"linguistics":"Linguistics", 
+		"relegiouns":"Religion", 
+		"design":"Design", 
+		"catalog_channel":"Channel and bot catalog", 
+		"telegram":"Telegram", 
+		"family":"Family and children",
+		"medicine":"Medicine", 
+		"animal":"Animal", 
+		"handwork":"Needlework", 
+		"lifehacks":"Life hacks",
+		"catalog_stikerov":"Sticker Catalog", 
+		"18":"For adults", 
+		"another":"Another",
+		"back":"Go back", 
+		"back_on_main_menu":"Go back in main menu"
+	},
+
+   "keyboard3":{
+		"sub1":"1-500 sub", 
+		"sub2":"1k-5k", 
+		"sub3":"5k-10k", 
+		"sub4":"10k-20k",
+		"sub5":"20k-50k", 
+		"sub6":"100k-500k", 
+		"sub7":"500k-1kk",
+		"back":"Go back", 
+		"back_in_main_menu":"Go back in main menu"
+	},
+
+   "keyboard4":{
+	   	"order":"Заказать", 
+		"back":"Go back", 
+		"back_in_main_menu":"Go back in main menu"
+	},
+
+   "back_in_back":"You came back", 
+   "back_in_main":"You are back in the main menu", 
+   "channel_with_sub":"Channels with selected number of subscribers", 
+   "error":"Error!", 
+        
+   "addkeyboard1":{
+	   "back":"Go back", 
+	   "how_add_channel":"How to add a channel to the bot"
+	}
+
+}

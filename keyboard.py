@@ -1,8 +1,12 @@
 #Клавиатура
 import telebot
 
+language_keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
+language_keyboard.row("RU", "EN")
+
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True, True)
 keyboard1.row('Категории каналов', 'Добавить канал')
+
 
 keyboard2 = telebot.types.ReplyKeyboardMarkup(True, True)
 keyboard2.add('Блоги', 'Юмор и развлечения', 'Бизнес и стартапы', 'Музыка','Новости и СМИ','Криптовалюты','Продажи','Здоровье и Спорт','Искусство и фото','Образование','Политика','Технологии','Путешествия','Маркетинг,PR,реклама','Видео и фильмы','Психология',

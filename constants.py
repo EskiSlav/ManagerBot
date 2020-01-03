@@ -1,4 +1,5 @@
 TOKEN = '815848999:AAFFiIOl7G7gdMVTjr6bAbpdFe2hYUovvLY'
+DATABASE = "data/database.db"
 themes = [
     'блоги',
     'бизнес и стартапы',

@@ -5,8 +5,7 @@ import constants
 from keyboard import *
 bot = telebot.TeleBot(constants.TOKEN)        
 
-conn = sqlite3.connect("users.db")
-cursor = conn.cursor()
+
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."
 
 ##keyboards
@@ -19,8 +18,19 @@ help_text = "Приветствую!\n Этот бот был создан дл�
 ## Отправка/прием сообщений
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.chat.id, 'Привет, твой персональный менеджер. Ты можешь выбрать любой канал с моего каталога и купить в нем рекламу. Если тебе интересно на что я существую так сказать, то я беру 10% за услуги с сумы админа. Что будем делать?', reply_markup=keyboard1)
-
+    bot.send_message(message.chat.id, 'Привет, твой персональный менеджер. Ты можешь выбрать любой канал с моего каталога и купить в нем рекламу. Если тебе интересно на что я существую так сказать, то я беру 10% за услуги с сумы админа.', reply_markup=keyboard1)
+    with sqlite3.connect(constants.DATABASE) as conn:
+        user = (message.from_user.id, message.from_user.first_name, message.from_user.last_name, message.from_user.username, 'EN','LANG_CHOOSE')
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT * FROM users WHERE user_id='{message.chat.id}';")
+        if len(cursor.fetchall()):
+            print("Such user already exists")
+        else:
+            cursor.execute("INSERT INTO users VALUES (?,?,?,?,?,?)", user)
+            cursor.execute("SELECT * FROM users;")
+            conn.commit()
+            print(cursor.fetchall())
+            bot.send_message(message.chat.id, "Choose language", reply_markup=language_keyboard)
 
 @bot.message_handler(content_types=['text'])
 def send_text(message):

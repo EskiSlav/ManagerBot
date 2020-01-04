@@ -1,5 +1,9 @@
 TOKEN = '815848999:AAFFiIOl7G7gdMVTjr6bAbpdFe2hYUovvLY'
-DATABASE = "data/database.db"
+DATABASE = "data/database.db"   
+EN = "data/EN.json"
+RU = "data/RU.json"
+
+LANG_CHOOSE = "LANG_CHOOSE"
 themes = [
     'блоги',
     'бизнес и стартапы',

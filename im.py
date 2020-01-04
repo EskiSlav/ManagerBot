@@ -8,7 +8,7 @@ bot = telebot.TeleBot(constants.TOKEN)
 TEXT = {}
 
 
-
+#This text is test
 
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."
 

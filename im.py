@@ -37,7 +37,7 @@ def start_message(message):
             bot.send_message(message.chat.id, "Choose language", reply_markup=language_keyboard)
 
 
-
+#fuck u
 
 
 @bot.message_handler(content_types=['text'])

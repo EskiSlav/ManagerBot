@@ -7,17 +7,8 @@ from keyboard import *
 bot = telebot.TeleBot(constants.TOKEN)        
 TEXT = {}
 
-
-#This text is test
-
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."
 
-##keyboards
-##@bot.message_handler(content_types=['text'])
-##def keyboard(message):
-  ##  keyboard1()
-
-#Hui
 
 ## Отправка/прием сообщений
 @bot.message_handler(commands=['start'])
@@ -37,7 +28,7 @@ def start_message(message):
             bot.send_message(message.chat.id, "Choose language", reply_markup=language_keyboard)
 
 
-#fuck u
+
 
 
 @bot.message_handler(content_types=['text'])

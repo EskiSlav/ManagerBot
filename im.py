@@ -36,6 +36,10 @@ def start_message(message):
             print(cursor.fetchall())
             bot.send_message(message.chat.id, "Choose language", reply_markup=language_keyboard)
 
+
+
+
+
 @bot.message_handler(content_types=['text'])
 def send_text(message):
     ###### keyboard1

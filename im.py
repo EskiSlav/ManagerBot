@@ -3,12 +3,12 @@ import telebot
 import json
 import sqlite3
 import constants
+from functions import *
 from keyboard import *
 bot = telebot.TeleBot(constants.TOKEN)        
 TEXT = {}
 
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."
-
 
 ## Отправка/прием сообщений
 @bot.message_handler(commands=['start'])
@@ -28,6 +28,17 @@ def start_message(message):
             bot.send_message(message.chat.id, "Choose language", reply_markup=language_keyboard)
 
 
+@bot.message_handler(content_types=['text'], func=check_lang_choose)
+def lang_choose(message):
+    conn, cursor = open_connection()
+    if message.text == "EN":
+        cursor.execute(f"UPDATE users SET status='EN' WHERE user_id={message.chat.id};")
+        bot.send_message(message.chat.id, "Language is English.")
+    elif message.text == "RU":
+        cursor.execute(f"UPDATE users SET status='RU' WHERE user_id={message.chat.id};")
+        bot.send_message(message.chat.id, "Язык русский")
+    conn.commit()
+    conn.close()
 
 
 

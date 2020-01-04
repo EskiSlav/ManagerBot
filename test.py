@@ -1,21 +1,24 @@
 import sqlite3
-conn = sqlite3.connect("data/database.db")
-cursor = conn.cursor()
+import functions
+# conn = sqlite3.connect("data/database.db")
+# cursor = conn.cursor()
 us_id = "111111"
 # cursor.execute(f"SELECT * FROM users WHERE user_id={us_id};")
 # cursor.execute("DELETE FROM users WHERE username='yardvlad'")
 
-cursor.execute("SELECT * FROM users;")
-fetch = cursor.fetchall()
-if len(fetch) == 0:
-    print("yes")
-else:
-    print(fetch)
-conn.commit()
+# cursor.execute("SELECT * FROM users;")
+# fetch = cursor.fetchall()
+# if len(fetch) == 0:
+#     print("yes")
+# else:
+#     print(fetch)
+# conn.commit()
+# conn.close()
+
+conn, curr = functions.open_connection()
+curr.execute("SELECT * FROM users;")
+print(curr.fetchall())
 conn.close()
-
-
-
 # import json
 
 # with open("data/RU.json", 'r') as enjson:

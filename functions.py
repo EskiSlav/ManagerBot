@@ -1,7 +1,7 @@
 import constants
 import sqlite3
-
-def check_lang_choose(m):
+import json
+def check_not_lang_choose(m):
     with sqlite3.connect(constants.DATABASE) as conn:
         cursor = conn.cursor()
         cursor.execute(f"SELECT * FROM users WHERE user_id={m.chat.id} and status='{constants.LANG_CHOOSE}'")
@@ -16,3 +16,17 @@ def check_lang_choose(m):
 def open_connection():
     with sqlite3.connect(constants.DATABASE) as conn:
         return (conn, conn.cursor())
+
+
+def user_lang(message):
+    conn, curr = open_connection()
+    curr.execute(f"SELECT status FROM users WHERE user_id={message.chat.id}")
+    lang = curr.fetchall()[0][0]
+    print('lang: ', lang)
+    conn.close()
+    if lang == "EN":
+        with open(constants.EN) as en:
+            return json.load(en)
+    elif lang == "RU":
+        with open(constants.RU) as ru:
+            return json.load(ru)

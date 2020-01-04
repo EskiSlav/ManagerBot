@@ -1,5 +1,7 @@
 import sqlite3
 import functions
+import constants
+import json
 # conn = sqlite3.connect("data/database.db")
 # cursor = conn.cursor()
 us_id = "111111"
@@ -15,10 +17,20 @@ us_id = "111111"
 # conn.commit()
 # conn.close()
 
-conn, curr = functions.open_connection()
-curr.execute("SELECT * FROM users;")
-print(curr.fetchall())
-conn.close()
+# TEXT = {}
+
+# conn, curr = functions.open_connection()
+# curr.execute(f"SELECT status FROM users WHERE user_id='394773843'")
+# lang = curr.fetchall()[0][0]
+# conn.close()
+# if "ru" == "EN":
+#     with open(constants.EN, 'r') as en:
+#         TEXT = json.load(en)
+# elif "RU" == "RU":
+#     with open(constants.RU, 'r') as ru:
+#         TEXT = json.load(ru)
+
+# print(TEXT['keyboard1'])
 # import json
 
 # with open("data/RU.json", 'r') as enjson:
@@ -32,3 +44,12 @@ conn.close()
 
 # with open ("data/EX.json", "w") as exjson:
 #     json.dump(data,exjson)
+
+lst = [1,2,3,4,5]
+div = 2
+print(lst[len(lst)-1])
+
+
+
+
+

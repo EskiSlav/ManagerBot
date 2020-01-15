@@ -41,13 +41,19 @@ def keyboard3(message):
     keyboard3.add(TEXT['back'], TEXT['back_in_menu'])
     return keyboard3
 
+def keyboard4(message):
+    TEXT = user_lang(message)
+    keyboard4 = telebot.types.ReplyKeyboardMarkup(True, True)
+    keyboard4.add(TEXT['keyboard4']['order'], TEXT['back'])
+    keyboard4.add(TEXT['back_in_menu'])
+    return keyboard4
 
-keyboard4 = telebot.types.ReplyKeyboardMarkup(True, True)
-keyboard4.add('Назад','Заказать')
-keyboard4.add('Вернуться в главное меню')
+def keyboard5(message):
+    TEXT = user_lang(message)
+    BUTTONS = TEXT['addkeyboard1']
+    keyboard5 = telebot.types.ReplyKeyboardMarkup(True, True)
+    keyboard5.add(BUTTONS['indicate_catalog'])
+    keyboard5.add(BUTTONS['how_add_channel'], BUTTONS['how_add_bot_admin'])
+    keyboard5.add(TEXT['back'])
+    return keyboard5
 
-keyboard5 = telebot.types.ReplyKeyboardMarkup(True, True)
-keyboard5.add('Назад','Как добавить бота')
-
-keyboard10 = telebot.types.ReplyKeyboardMarkup(True, True)
-keyboard10.add('Сhannel categories', 'Add channel')

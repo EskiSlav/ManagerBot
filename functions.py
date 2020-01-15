@@ -14,10 +14,18 @@ def check_not_lang_choose(message):
             print('wtf?')
             return False
 
+
 def open_connection():
     with sqlite3.connect(constants.DATABASE) as conn:
         return (conn, conn.cursor())
 
+
+def check_channel_add(message):
+    conn, cursor = open_connection()    
+    cursor.execute(f"SELECT * from users WHERE user_id={message.chat.id} and status='{constants.CHANNEL_ADD}'")
+    res = len(cursor.fetchall()) > 0
+    conn.close()
+    return res
 
 def user_lang(message):
     conn, curr = open_connection()
@@ -31,3 +39,6 @@ def user_lang(message):
     elif lang == "RU":
         with open(constants.RU) as ru:
             return json.load(ru)
+
+if __name__ == "__main__":
+    print(check_channel_add(394773843))

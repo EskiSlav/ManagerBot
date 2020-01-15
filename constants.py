@@ -4,6 +4,7 @@ EN = "data/EN.json"
 RU = "data/RU.json"
 
 LANG_CHOOSE = "LANG_CHOOSE"
+CHANNEL_ADD = "CHANNEL_ADD"
 themes = [
     'блоги',
     'бизнес и стартапы',

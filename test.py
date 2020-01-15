@@ -18,6 +18,12 @@ us_id = "111111"
 # conn.close()
 
 # TEXT = {}
+var = 394773843
+conn, cursor = functions.open_connection()
+cursor.execute(f"UPDATE users SET status='EN' WHERE user_id={var};")
+print(cursor.fetchall())
+conn.close()
+
 
 # conn, curr = functions.open_connection()
 # curr.execute(f"SELECT status FROM users WHERE user_id='394773843'")

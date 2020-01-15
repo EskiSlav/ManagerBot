@@ -29,64 +29,70 @@ def start_message(message):
             bot.send_message(message.chat.id, "Choose language", reply_markup=language_keyboard)
 
 
-@bot.message_handler(content_types=['text'], func=check_not_lang_choose)
-def lang_choose(message):
+@bot.message_handler(commands=['language'])
+def change_language(message):
+    bot.send_message(message.chat.id, "Choose language:", reply_markup=language_keyboard)
     conn, cursor = open_connection()
-    if message.text == "EN":
-        cursor.execute(f"UPDATE users SET status='EN' WHERE user_id={message.chat.id};")
-        conn.commit()
-        bot.send_message(message.chat.id, "Language is English.", reply_markup=keyboard1(message))
-    elif message.text == "RU":
-        cursor.execute(f"UPDATE users SET status='RU' WHERE user_id={message.chat.id};")
-        conn.commit()
-        bot.send_message(message.chat.id, "Язык русский", reply_markup=keyboard1(message))
+    cursor.execute(f"UPDATE users SET language='None',status='{constants.LANG_CHOOSE}' WHERE user_id={message.chat.id};")
     conn.commit()
     conn.close()
 
+@bot.message_handler(content_types=['text'], func=check_not_lang_choose)
+def lang_choose(message):
+    conn, cursor = open_connection()
+    if message.text == "English 🇬🇧":
+        cursor.execute(f"UPDATE users SET language='EN',status='None' WHERE user_id={message.chat.id};")
+        conn.commit()
+        bot.send_message(message.chat.id, "Language is English.", reply_markup=keyboard1(message))
+    elif message.text == "Русский 🇷🇺":
+        cursor.execute(f"UPDATE users SET language='RU',status='None' WHERE user_id={message.chat.id};")
+        conn.commit()
+        bot.send_message(message.chat.id, "Язык русский", reply_markup=keyboard1(message))
+    else:
+        bot.send_message(message.chat.id, "Plese, before makeking requests choose one of the languages below =)")
+    conn.close()
 
 
+['keyboard1']
 @bot.message_handler(content_types=['text'])
 def send_text(message):
+    TEXT = user_lang(message)
     ###### keyboard1
-    if message.text.lower()  ==  'категории каналов':
-        bot.send_message(message.chat.id, 'Выбери категорию канала', reply_markup=keyboard2(message))
-    elif message.text.lower()   ==    'добавить канал':
+    print(TEXT['catalog'], message.text, TEXT['catalog'].split()[0] == message.text.split()[0])
+    keyboard3_buttons = TEXT['keyboard3']
+    if message.text == TEXT['catalog']:
+        bot.send_message(message.chat.id, TEXT['choose_category'], reply_markup=keyboard2(message))
+    elif message.text == TEXT['add_channel']:
         bot.send_message(message.chat.id, 'Для того чтобы твой канал видели остальные участники, тебе необходимо добавить его в нашу базу данных. Как это сделать ты увидишь после того как нажмешь на кнопку "Как добавить канал"', reply_markup=keyboard5)
     ###### keyboard2(message)
     elif message.text.lower() in constants.themes:
         bot.send_message(message.chat.id,'Выбери какое количество подписчиков ты хочешь видеть в канале', reply_markup=keyboard3)
     ######
 
-    elif message.text.lower() == 'назад':
-        bot.send_message(message.chat.id, 'Ты вернулся назад', reply_markup=keyboard2(message))
-    elif message.text.lower() == 'назад':
-        bot.send_message(message.chat.id, 'Ты вернулся назад')
-    elif message.text.lower() == 'назад':
-        bot.send_message(message.chat.id, 'Ты вернулся назад', reply_markup=keyboard3)
+    elif message.text.lower() == TEXT['back'].lower():
+        bot.send_message(message.chat.id, TEXT['back_answer'], reply_markup=keyboard2(message))
     elif message.text.lower() == 'вернуться в главное меню':
         bot.send_message(message.chat.id, 'Ты вернулся в главное меню', reply_markup=keyboard1(message))
-
-
     ###### keyboard3
-    elif message.text.lower() == '1-500 под':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
-    elif message.text.lower() == '500-1k':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
-    elif message.text.lower() == '1k-5k':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
-    elif message.text.lower() == '5k-10k':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
-    elif message.text.lower() == '10k-20k':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
-    elif message.text.lower() == '20k-50k':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
-    elif message.text.lower() == '50k-100k':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
+    elif message.text.lower() == keyboard3_buttons['sub1']:
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
+    elif message.text.lower() == keyboard3_buttons['sub2']:
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
+    elif message.text.lower() == keyboard3_buttons['sub3']:
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
+    elif message.text.lower() == keyboard3_buttons['sub4']:
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
+    elif message.text.lower() == keyboard3_buttons['sub5']:
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
+    elif message.text.lower() == keyboard3_buttons['sub6']:
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
+    elif message.text.lower() == keyboard3_buttons['sub7']:
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
     elif message.text.lower() == '100k-500k':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
     elif message.text.lower() == '500k-1kk':
-        bot.send_message(message.chat.id, 'Вот каналы с таким количеством подписчиков', reply_markup=keyboard4)
+        bot.send_message(message.chat.id, TEXT['here_it_is'], reply_markup=keyboard4)
     else:
-        bot.send_message(message.chat.id, 'Ошибка!')
+        bot.send_message(message.chat.id, 'Ошибка! ' + message.text)
 
 bot.polling()

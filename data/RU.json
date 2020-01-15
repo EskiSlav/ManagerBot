@@ -1,55 +1,56 @@
 {
-	"keyboard1":{
-		"catalog":"Категории каналов", 
-		"add_channel":"Добавить канал"
-	},
+	"add_channel": "Добавить канал",
+	"catalog": "Категории каналов",
+	"choose_category": "Выбери категорию канала",
+	"channel_with_sub":"Каналы с выбраным количеством подписчиков",
+	"error":"Ошибка!", 
+
+	"back": "Назад",
+	"back_answer":"Ты вернулся назад", 
+	"back_in_menu":"Вернутся в главное меню", 
+	"back_in_menu_answer" :"Ты вернулся в главное меню",
+
+	"here_it_is": "Вот каналы с таким числом подписчиков:",
 
 	"keyboard2":{
-		"buttons":{
-			"blogs":"Блоги", 
-			"fun":"Юмор и развлечения", 
-			"business":"Бизнес и стартапы",
-			"music":"Музыка", 
-			"news":"Новости и СМИ", 
-			"crypto":"Криптовалюты", 
-			"sells":"Продажи",
-			"health":"Здоровье и спорт", 
-			"art":"Искусство и фото", 
-			"education":"Образование",
-			"politics":"Политика", 
-			"technology":"Технологии", 
-			"travel":"Путешествия",
-			"advertising":"Маркетинг,PR,Реклама", 
-			"video":"Видео и фильмы", 
-			"psycology":"Психология",
-			"fashion":"Мода и красота", 
-			"gamesandapps":"Игры и приложения", 
-			"books":"Книги", 
-			"quotes":"Цитаты",
-			"food":"Еда и кулинария", 
-			"informative":"Позновательно", 
-			"car":"Авто", 
-			"economics":"Экономика",
-			"career":"Карьера", 
-			"linguistics":"Лингвистика", 
-			"relegiouns":"Религия", 
-			"design":"Дизайн", 
-			"catalog_channel":"Каталог каналов и ботов", 
-			"telegram":"Telegram", 
-			"family":"Семья и дети",
-			"medicine":"Медицина", 
-			"animal":"Животные", 
-			"handwork":"Рукоделие", 
-			"lifehacks":"Лайфхаки",
-			"catalog_stikerov":"Каталог стикеров", 
-			"18":"Для взрослых", 
-			"another":"Другое"
-		},
-
-		"back_buttons":{
-			"back":"Вернутся назад", 
-			"back_on_main_menu":"Вернутся в главное меню"
-		}
+		"blogs":"Блоги", 
+		"fun":"Юмор и развлечения", 
+		"business":"Бизнес и стартапы",
+		"music":"Музыка", 
+		"news":"Новости и СМИ", 
+		"crypto":"Криптовалюты", 
+		"sells":"Продажи",
+		"health":"Здоровье и спорт", 
+		"art":"Искусство и фото", 
+		"education":"Образование",
+		"politics":"Политика", 
+		"technology":"Технологии", 
+		"travel":"Путешествия",
+		"advertising":"Маркетинг,PR,Реклама", 
+		"video":"Видео и фильмы", 
+		"psycology":"Психология",
+		"fashion":"Мода и красота", 
+		"gamesandapps":"Игры и приложения", 
+		"books":"Книги", 
+		"quotes":"Цитаты",
+		"food":"Еда и кулинария", 
+		"informative":"Позновательно", 
+		"car":"Авто", 
+		"economics":"Экономика",
+		"career":"Карьера", 
+		"linguistics":"Лингвистика", 
+		"relegiouns":"Религия", 
+		"design":"Дизайн", 
+		"catalog_channel":"Каталог каналов и ботов", 
+		"telegram":"Telegram", 
+		"family":"Семья и дети",
+		"medicine":"Медицина", 
+		"animal":"Животные", 
+		"handwork":"Рукоделие", 
+		"lifehacks":"Лайфхаки",
+		"catalog_stikerov":"Каталог стикеров", 
+		"18":"Для взрослых", 
+		"another":"Другое"
 	},
 
    "keyboard3":{
@@ -59,28 +60,17 @@
 		"sub4":"10k-20k",
 		"sub5":"20k-50k", 
 		"sub6":"100k-500k", 
-		"sub7":"500k-1kk",
-		"back":"Вернутся назад", 
-		"back_in_main_menu":"Вернутся в главное меню"
-	},
-   "keyboard4":{
-	   "order":"Заказать", 
-		"back":"Вернутся назад", 
-		"back_in_main_menu":"Вернутся в главное меню"
+		"sub7":"500k-1kk"
 	},
 
-   "back_in_back":"Ты вернулся назад", 
-   "back_in_main":"Ты вернулся в главное меню", 
-   "channel_with_sub":"Каналы с выбраным количеством подписчиков",
-   "error":"Ошибка!", 
+   "keyboard4":{
+	   "order":"Заказать"
+	},
             
    "addkeyboard1":{
-	   "back":"Вернутся назад", 
 	   "how_add_channel":"Как добавить канал",
 	   "how_add_bot_admin":"Как сделать бота админом",
-	   "indicate_catalog":"Указать категорию"
-	   
+	   "indicate_catalog":"Указать категорию"	   
 	}
-
 
 }

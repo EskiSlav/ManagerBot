@@ -27,6 +27,7 @@ def check_channel_add(message):
     conn.close()
     return res
 
+
 def user_lang(message):
     conn, curr = open_connection()
     curr.execute(f"SELECT language FROM users WHERE user_id={message.chat.id}")
@@ -39,6 +40,14 @@ def user_lang(message):
     elif lang == "RU":
         with open(constants.RU) as ru:
             return json.load(ru)
+
+
+def set_status_none(message):
+    conn, cursor = open_connection()
+    cursor.execute(f"UPDATE users SET status='None' WHERE user_id={message.chat.id}")
+    conn.commit()
+    conn.close()
+
 
 if __name__ == "__main__":
     print(check_channel_add(394773843))

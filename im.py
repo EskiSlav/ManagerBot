@@ -2,6 +2,7 @@
 import telebot
 import json
 import sqlite3
+from credentials import TOKEN
 from functions import *
 from keyboard import *
 from constants import (
@@ -9,7 +10,7 @@ from constants import (
     CHANNEL_ADD,
     themes
 )
-bot = telebot.TeleBot(constants.TOKEN)    
+bot = telebot.TeleBot(TOKEN)    
 
 help_text = "Приветствую!\n Этот бот был создан для *бла-бла*."
 
@@ -41,6 +42,12 @@ def change_language(message):
     conn.commit()
     conn.close()
 
+
+@bot.message_handler(commands=['exit'])
+def status_none(message):
+    set_status_none(message)
+
+
 @bot.message_handler(content_types=['text'], func=check_not_lang_choose)
 def lang_choose(message):
     conn, cursor = open_connection()
@@ -60,20 +67,18 @@ def lang_choose(message):
 @bot.message_handler(content_types=['text'], func=check_channel_add)
 def channel_add(message):
     if message.forward_from_chat is None:
-        print('Forward message from your channel you want to add')
+        bot.send_message(message.chat.id, 'Forward message from channel you want to add')
     else:
         print((channel := message.forward_from_chat))
+        print(type(channel), bot.get_chat(channel.id))
         if channel.type == 'channel':
             bot.send_message(message.chat.id, "Yes, this is channel")
-            print(bot.get_chat_administrators(channel.id))
 
 @bot.message_handler(content_types=['text'])
 def send_text(message):
-    # print(message.forward_from_chat)
+    
     # print(bot.get_chat_administrators(message.forward_from_chat.id)[0].user.id)
     TEXT = user_lang(message)
-    ###### keyboard1
-    # print(TEXT['catalog'], message.text, TEXT['catalog'].split()[0] == message.text.split()[0])
     keyboard3_buttons = TEXT['keyboard3']
     if message.text == TEXT['catalog']:
         bot.send_message(message.chat.id, TEXT['choose_category'], reply_markup=keyboard2(message))

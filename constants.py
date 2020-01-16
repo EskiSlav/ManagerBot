@@ -1,9 +1,12 @@
 DATABASE = "data/database.db"   
 EN = "data/EN.json"
 RU = "data/RU.json"
+IMAGE_DIR = "data/images/"
 
-LANG_CHOOSE = "LANG_CHOOSE"
-CHANNEL_ADD = "CHANNEL_ADD"
+LANG_CHOOSE_STATUS = "LANG_CHOOSE"
+CHANNEL_ADD_STATUS = "CHANNEL_ADD"
+IN_MAIN_MENU_STATUS = "IN_MAIN_MENU"
+CHOOSE_CATEGORY_STATUS = "CHOOSE CATEGORY"
 themes = [
     'блоги',
     'бизнес и стартапы',

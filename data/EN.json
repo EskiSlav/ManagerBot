@@ -12,6 +12,10 @@
 
 	"here_it_is": "Here are channels with this number of subscribers:",
 
+	"choose_sub": "Choose number of subscribers you want to see in the channel",
+
+	"instructions":"If you want other participants of our bot you need to foloow the instructions ...",
+
 	"keyboard2":{
 		"blogs":"Blogs", 
 		"fun":"Fun and entertainment", 

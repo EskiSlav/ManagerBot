@@ -18,11 +18,11 @@ us_id = "111111"
 # conn.close()
 
 # TEXT = {}
-var = 394773843
-conn, cursor = functions.open_connection()
-cursor.execute(f"UPDATE users SET status='EN' WHERE user_id={var};")
-print(cursor.fetchall())
-conn.close()
+# var = 394773843
+# conn, cursor = functions.open_connection()
+# cursor.execute(f"UPDATE users SET status='EN' WHERE user_id={var};")
+# print(cursor.fetchall())
+# conn.close()
 
 
 # conn, curr = functions.open_connection()
@@ -51,11 +51,41 @@ conn.close()
 # with open ("data/EX.json", "w") as exjson:
 #     json.dump(data,exjson)
 
-lst = [1,2,3,4,5]
-div = 2
-print(lst[len(lst)-1])
+# lst = [1,2,3,4,5]
+# div = 2
+# print(lst[len(lst)-1])
 
 
+conn, curr = functions.open_connection()
+curr.execute("""
+CREATE TABLE IF NOT EXISTS "channels" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"name"	TEXT NOT NULL,
+	"owner"	TEXT NOT NULL,
+	"user_id"	INTEGER,
+	"username"	TEXT,
+	"subscribers"	NUMERIC NOT NULL,
+	"date"	TEXT NOT NULL,
+	"image"	INTEGER,
+	FOREIGN KEY("user_id") REFERENCES "users"("user_id")
+);""")
 
+curr.execute("""
+CREATE TABLE IF NOT EXISTS "users" (
+	"user_id"	TEXT NOT NULL UNIQUE,
+	"first_name"	TEXT,
+	"last_name"	TEXT,
+	"username"	TEXT,
+	"language"	TEXT DEFAULT 'EN',
+	"status"	TEXT DEFAULT 'LANG_CHOOSE',
+	PRIMARY KEY("user_id")
+);""")
+
+functions.execute_query("""INSERT INTO "users" VALUES ('394773843','EskiSlav',NULL,'EskiSlav','RU','IN_MAIN_MENU');""")
+functions.execute_query("""INSERT INTO "users" VALUES ('364983751','LEON',NULL,'yardvlad','RU','None');""")
+functions.execute_query("""INSERT INTO "users" VALUES ('781965757','Вячеслав',NULL,'eskislav2','EN','None');""")
+conn.commit()
+
+conn.close()
 
 

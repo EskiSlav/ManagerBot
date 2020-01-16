@@ -17,7 +17,6 @@ def keyboard2(message):
     TEXT = user_lang(message)
     BUTTONS = TEXT['keyboard2']
     keyboard2 = telebot.types.ReplyKeyboardMarkup(True, True)
-    print(TEXT)
     values = list(BUTTONS.values())
     length = len(values)
     div = length % 3
